@@ -114,6 +114,7 @@ dmypy.json
 
 fatduck/
 
-#csv
+#csv and zip
 
-.csv
+*.csv
+*.zip
