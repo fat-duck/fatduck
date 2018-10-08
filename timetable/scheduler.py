@@ -19,5 +19,5 @@ def main(job):
 # schedule.every().minute.do(job)
 
 
-dl.main()  # will run at least once before passing on to scheduler
-main(job)
+#dl.main()  # will run at least once before passing on to scheduler
+#main(job)
