@@ -1,4 +1,3 @@
-## TODO
-
-- Login
-- Customer Account details
+- Create virtualenvironment
+- Activate virtualenvironment
+- pip install -r requirements.txt
