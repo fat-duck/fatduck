@@ -19,3 +19,7 @@ def main():
         print("Unzipping completed")
         os.remove("timetable/timetableCSV.zip")
         print("Deleting zip")
+
+#For testing only. Use from scheduler.py in production
+
+#main()
