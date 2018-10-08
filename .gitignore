@@ -113,3 +113,7 @@ dmypy.json
 #virtualenv folder
 
 fatduck/
+
+#csv
+
+.csv
