@@ -1,6 +1,6 @@
 import schedule
-import dl
-import time
+from timetable import dl
+#import multiprocessing as mp
 
 
 def job():
@@ -8,10 +8,16 @@ def job():
     dl.main()
 
 
-schedule.every(6).hours.do(job)
-# schedule.every().minute.do(job)
+def main(job):
 
-while True:
+    schedule.every(1).second.do(job)
+    schedule.every(6).hours.do(job)
     print("Scheduler running . . . . . ")
     schedule.run_pending()
-    time.sleep(60)
+
+
+# schedule.every().minute.do(job)
+
+
+dl.main()  # will run at least once before passing on to scheduler
+main(job)
