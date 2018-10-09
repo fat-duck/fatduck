@@ -19,8 +19,8 @@ def getTimetable(intakeCode):
 	    for row in csv_reader:
 	    	if (row[1].upper() == intakeCode):
 	        	if datetime.datetime.today().strftime('%d-%m-%Y') in row[2]:
-	        		if row[6] not in ignoredModule:
-	        			message += ('Module Code: ' + row[6] + '\n' + 'Date: ' + row[2] + '\n' + 'Time: ' + row[3] + '\n' + 'Location: ' + row [5] + '\n' + 'Lecturer: ' + row [6] + '\n\n')
+	        		# if row[6] not in ignoredModule:
+	        		message += ('Module Code: ' + row[6] + '\n' + 'Date: ' + row[2] + '\n' + 'Time: ' + row[3] + '\n' + 'Location: ' + row [5] + '\n' + 'Lecturer: ' + row [6] + '\n\n')
 	if message != '':
 		print('Message sent!')
 	return message
