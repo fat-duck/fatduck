@@ -6,6 +6,7 @@ env.read_envfile()
 
 bot_token = env('BOT_TOKEN')
 test_url = env('BOT_TEST_URL') + "/{}".format(bot_token)
+print(env('BOT_TEST_URL'))
 
 def get_url(method):
     return "https://api.telegram.org/bot{}/{}".format(bot_token,method)
