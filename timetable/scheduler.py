@@ -1,7 +1,5 @@
 from apscheduler.schedulers.background import BackgroundScheduler
 from timetable import dl
-from pytz import utc
-import datetime
 
 
 def work():
@@ -10,5 +8,5 @@ def work():
 
 
 scheduler = BackgroundScheduler()
-scheduler.add_job(work, 'interval', seconds=10)
+scheduler.add_job(work, 'cron', hour=6)
 scheduler.start()
