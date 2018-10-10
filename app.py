@@ -17,13 +17,6 @@ def process_update():
         update = request.get_json()
         print(update)
         bot.process_update(update)
-        # # print(update)
-        # if "/tt" in update["message"]["text"]:
-        #     bot.process_message(update, prettyCSV.getTimetable())
-        # elif "/intake" in update["message"]["text"]:
-        #     process_message(update, "Please select your intake code.")
-        # elif "message" in update:
-        #     process_message(update, "Hi, I am KarmaBot :)")
         return "ok!", 200
 
 
