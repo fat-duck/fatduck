@@ -119,3 +119,6 @@ fatduck/
 *.json
 *.csv
 *.zip
+
+#ngrok
+ngrok
