@@ -122,3 +122,6 @@ fatduck/
 
 #ngrok
 ngrok
+
+#pipfiles
+*Pipfile

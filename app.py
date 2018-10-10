@@ -30,7 +30,7 @@ def process_update():
 if __name__ == '__main__':
 
     app.run(
-        host='localhost',
+        host='0.0.0.0',
         port='5000',
         debug=None,
         load_dotenv=True)
