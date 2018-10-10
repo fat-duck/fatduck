@@ -1,7 +1,5 @@
 from flask import Flask
 from reader import csv_reader  # reader package is the reader/ directory
-from timetable import scheduler
-
 
 app = Flask(__name__)
 
@@ -12,6 +10,7 @@ def json_output():
 
 
 if __name__ == '__main__':
+
     app.run(
         host='localhost',
         port='5000',

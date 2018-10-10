@@ -1,23 +1,19 @@
-import schedule
+from apscheduler.schedulers.background import BackgroundScheduler
 import dl
-#import multiprocessing as mp
+from pytz import utc
+import time
 
 
-def job():
+def work():
     print("initiating dl.py...")
     dl.main()
 
 
-def main(job):
-
-    schedule.every(1).second.do(job)
-    schedule.every(6).hours.do(job)
-    print("Scheduler running . . . . . ")
-    schedule.run_pending()
-
-
-# schedule.every().minute.do(job)
-
-
-# dl.main()  # will run at least once before passing on to scheduler
-# main(job)
+scheduler = BackgroundScheduler()
+scheduler.add_job(work, 'interval', seconds=10)
+scheduler.start()
+try:
+    while True:
+        time.sleep(5)
+except(KeyboardInterrupt, SystemExit):
+    scheduler.shutdown()
