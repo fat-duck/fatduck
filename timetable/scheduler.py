@@ -3,7 +3,7 @@ from timetable import dl
 import pytz
 
 tz = pytz.timezone("Asia/Kuala_Lumpur")
-dl.main() #  Run download at least once before starting the app
+dl.main()  # Run download at least once before starting the app
 
 
 def work():
