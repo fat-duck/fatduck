@@ -1,6 +1,7 @@
 import requests
 import zipfile
 import os
+import glob
 
 
 def main():
@@ -19,7 +20,9 @@ def main():
         print("Unzipping completed")
         os.remove("timetable/timetableCSV.zip")
         print("Deleting zip")
+        os.rename(glob.glob("timetable/" + "*.csv")[0], "tt.csv")
 
 # For testing only. Use from scheduler.py in production
+
 
 # main()

@@ -1,4 +1,3 @@
-import requests
 from envparse import env
 from flask import Flask, request
 import bot
@@ -8,6 +7,7 @@ env.read_envfile()
 app = Flask(__name__)
 
 bot_token = env('BOT_TOKEN')
+
 
 @app.route("/{}".format(bot_token), methods=["POST"])
 def process_update():
