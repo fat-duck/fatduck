@@ -1,7 +1,9 @@
 from flask import Flask
 from reader import csv_reader  # reader package is the reader/ directory
-
+from timetable import scheduler
 app = Flask(__name__)
+
+scheduler
 
 
 @app.route('/', methods=['GET'])
