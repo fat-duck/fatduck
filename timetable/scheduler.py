@@ -8,7 +8,11 @@ dl.main()  # Run download at least once before starting the app
 
 def work():
     print("initiating dl.py...")
-    dl.main()
+    try:
+        dl.main()
+        return "Download initiated"
+    except Exception as e:
+        raise e
 
 
 scheduler = BackgroundScheduler()
