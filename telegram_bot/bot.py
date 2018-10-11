@@ -59,6 +59,7 @@ def getSessionCode(update):
         print('err: ' + str(e))
         return ''
 
+
 def get_url(method):
     return "https://api.telegram.org/bot{}/{}".format(bot_token, method)
 

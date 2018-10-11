@@ -11,22 +11,27 @@ bot_token = env('BOT_TOKEN')
 
 scheduler
 webhook
-pendingUpdateCount = webhook.getPendingUpdateCount()["result"]["pending_update_count"] # Get count of pending updates when the server deploys
+# Get count of pending updates when the server deploys
+pendingUpdateCount = webhook.getPendingUpdateCount()[
+    "result"]["pending_update_count"]
+
 
 @app.route("/{}".format(bot_token), methods=["POST"])
 def process_update():
-    if request.method == "POST": 
-    	global pendingUpdateCount # To amend it globally
-    	update = request.get_json()
-    	bot.setPendingUpdateCount(pendingUpdateCount, update) # Set the pending update count to firebase
-    	userPendingUpdateCount = bot.getPendingUpdateCount(update) # Get
-    	if userPendingUpdateCount <= 1: # All the pending update can only send once
-	        print(update)
-	        bot.process_update(update)
-    	else:
-    		print(update)
-    	pendingUpdateCount -= 1 # After process one request minus one 
-    	return "ok!", 200
+    if request.method == "POST":
+        global pendingUpdateCount  # To amend it globally
+        update = request.get_json()
+        # Set the pending update count to firebase
+        bot.setPendingUpdateCount(pendingUpdateCount, update)
+        userPendingUpdateCount = bot.getPendingUpdateCount(update)  # Get
+        if userPendingUpdateCount <= 1:  # All the pending update can only send once
+            print(update)
+            bot.process_update(update)
+        else:
+            print(update)
+        pendingUpdateCount -= 1  # After process one request minus one
+        return "ok!", 200
+
 
 if __name__ == '__main__':
 
