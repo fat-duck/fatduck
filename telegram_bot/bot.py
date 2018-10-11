@@ -18,11 +18,32 @@ db = firestore.client()
 regex_tt = re.compile('\/tt[1-6]')
 
 
+def setPendingUpdateCount(cnt, update):
+    data = {
+        u'pending_update_count': cnt
+    }
+
+    db.collection(u'Update').document(
+        str(update["message"]["from"]["id"])).set(data)
+
+
+def getPendingUpdateCount(update):
+    doc_ref = db.collection(u'Update').document(
+        str(update["message"]["from"]["id"]))
+    try:
+        doc = doc_ref.get()
+        print('Document data: {}'.format(doc.to_dict()))
+        return doc.to_dict()["pending_update_count"]
+    except Exception as e:
+        print('err: ' + str(e))
+        return ''
+
+
 def setSessionCode(code, update):
     data = {
         u'sessionCode': code
     }
-    # Add a new doc in collection 'cities' with ID 'LA'
+
     db.collection(u'Session').document(
         str(update["message"]["from"]["id"])).set(data)
 
@@ -37,7 +58,6 @@ def getSessionCode(update):
     except Exception as e:
         print('err: ' + str(e))
         return ''
-
 
 def get_url(method):
     return "https://api.telegram.org/bot{}/{}".format(bot_token, method)
@@ -62,7 +82,7 @@ def setIntakeCode(intakeCode, update):
     data = {
         u'intakeCode': intakeCode
     }
-    # Add a new doc in collection 'cities' with ID 'LA'
+
     db.collection(u'Intake').document(
         str(update["message"]["from"]["id"])).set(data)
 
