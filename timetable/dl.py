@@ -20,7 +20,6 @@ def main():
         print("Unzipping completed")
     os.remove("timetable/timetableCSV.zip")  # Can't work on windows
     print("Deleting zip")
-
     os.rename(glob.glob("timetable/" + "*.csv")[0], "tt.csv")
 
 # For testing only. Use from scheduler.py in production
