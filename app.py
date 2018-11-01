@@ -16,6 +16,11 @@ pendingUpdateCount = webhook.getPendingUpdateCount()[
     "result"]["pending_update_count"]
 
 
+@app.route("/")
+def hello():
+    return "Hello, its working"
+
+
 @app.route("/{}".format(bot_token), methods=["POST"])
 def process_update():
     if request.method == "POST":
